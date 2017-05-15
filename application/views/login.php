@@ -9,10 +9,11 @@
     <body>
         <?=form_open ('users/do_login'); ?>
 
-        <?=form_input ($form['email']); ?>
+        <?=form_input ($form['username']); ?>
         <?=form_input ($form['password']); ?>
 
         <?=form_submit (null, 'Login');?>
+        <?=form_submit (null, 'Sign Up');?>
 
         <?=form_close (); ?>
     </body>

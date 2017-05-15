@@ -4,12 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Users_Model extends CI_Model {
 
     # Register the user
-    public function register ($full_name, $email, $password) {
+    public function register ($full_name, $full_surname, $role, $dob, $username, $password, $email) {
 
         $data = array (
-            'user_full_name'    => $full_name,
-            'user_email'        => $email,
-            'user_password'     => password_hash ($password, CRYPT_BLOWFISH)
+            'user_name'     => $full_name,
+            'user_surname'  => $full_surname,
+            'user_role'     => $role,
+            'user_dob'      => $dob;
+            'user_username' => $username;
+            'user_password' => password_hash ($password, CRYPT_BLOWFISH)
+            'user_email'    => $email,
+
         );
 
         $this->db->insert ('tbl_users', $data);
@@ -66,7 +71,7 @@ class Users_Model extends CI_Model {
     public function get_userdata ($id) {
 
         # Set the query
-        $this->db->select ('user_id, user_full_name')
+        $this->db->select ('user_id, user_name')
             ->where ('user_id', $id);
 
         # Put the results in a variable
