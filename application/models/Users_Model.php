@@ -10,10 +10,10 @@ class Users_Model extends CI_Model {
             'user_name'     => $full_name,
             'user_surname'  => $full_surname,
             'user_role'     => $role,
-            'user_dob'      => $dob;
-            'user_username' => $username;
-            'user_password' => password_hash ($password, CRYPT_BLOWFISH)
-            'user_email'    => $email,
+            'user_dob'      => $dob,
+            'user_username' => $username,
+            'user_password' => password_hash ($password, CRYPT_BLOWFISH),
+            'user_email'    => $email
 
         );
 

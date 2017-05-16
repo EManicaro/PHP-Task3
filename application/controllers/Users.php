@@ -12,22 +12,52 @@ class Users extends TW_Controller {
 		# the page info goes into an array
 		$data = array (
 			'form'		=> array (
-				'full_name'		=> array (
+				'name'		=> array (
 					'type'			=> 'text',
 					'name'			=> 'input-full-name',
-					'placeholder'	=> 'Herman Borg Bonaci',
+					'placeholder'	=> 'Herman',
 					'required'		=> TRUE
 				),
-				'email'			=> array (
-					'type'			=> 'email',
-					'name'			=> 'input-email',
-					'placeholder'	=> 'me@example.com',
+
+				'surname'		=> array (
+					'type'			=> 'text',
+					'name'			=> 'input-surname',
+					'placeholder'	=> 'Borg',
 					'required'		=> TRUE
 				),
+
+				'role'		=> array (
+					'type'			=> 'text',
+					'name'			=> 'input-role',
+					'placeholder'	=> 'Student',
+					'required'		=> TRUE
+				),
+
+				'date_of_birth'		=> array (
+					'type'			=> 'date',
+					'name'			=> 'input-date_of_birth',
+					'placeholder'	=> '21-10-1995',
+					'required'		=> TRUE
+				),
+
+				'username'		=> array (
+					'type'			=> 'text',
+					'name'			=> 'input-username',
+					'placeholder'	=> 'HermanB',
+					'required'		=> TRUE
+				),
+
 				'password'		=> array (
 					'type'			=> 'password',
 					'name'			=> 'input-password',
 					'placeholder'	=> 'password',
+					'required'		=> TRUE
+				),
+
+				'email'			=> array (
+					'type'			=> 'email',
+					'name'			=> 'input-email',
+					'placeholder'	=> 'me@example.com',
 					'required'		=> TRUE
 				)
 			)
@@ -47,8 +77,28 @@ class Users extends TW_Controller {
 		# set the form rules
 		$rules = array (
 			array (
-				'field'	=> 'input-full-name',
-				'label' => 'Full Name',
+				'field'	=> 'input-name',
+				'label' => 'Name',
+				'rules' => 'required|alpha'
+			),
+			array (
+				'field'	=> 'input-surname',
+				'label' => 'Surname',
+				'rules' => 'required|alpha'
+			),
+			array (
+				'field'	=> 'input-role',
+				'label' => 'Role',
+				'rules' => 'required|alpha'
+			),
+			array (
+				'field'	=> 'input-date_of_birth',
+				'label' => 'Date of Birth',
+				'rules' => 'required|numeric'
+			),
+			array (
+				'field'	=> 'input-username',
+				'label' => 'Username',
 				'rules' => 'required|alpha'
 			),
 			array (
@@ -72,11 +122,15 @@ class Users extends TW_Controller {
 			return;
 		}
 
-		$full_name 	= $this->input->post ('input-full-name');
-		$email 		= $this->input->post ('input-email');
+		$full_name 	= $this->input->post ('input-name');
+		$full_surname 	= $this->input->post ('input-surname');
+		$role 	= $this->input->post ('input-role');
+		$dob 	= $this->input->post ('input-date_of_birth');
+		$username 	= $this->input->post ('input-username');
 		$password 	= $this->input->post ('input-password');
+		$email 		= $this->input->post ('input-email');
 
-		if ($this->users_model->register ($full_name, $email, $password)) {
+		if ($this->users_model->register ($full_name, $full_surname, $role, $dob, $username, $password, $email)) {
 			echo "The user was registered.";
 		} else {
 			echo "The user could not be registered.";
@@ -93,7 +147,7 @@ class Users extends TW_Controller {
 		# the page info goes into an array
 		$data = array (
 			'form'		=> array (
-				'email'			=> array (
+				'username'			=> array (
 					'type'			=> 'email',
 					'name'			=> 'input-email',
 					'placeholder'	=> 'me@example.com',
