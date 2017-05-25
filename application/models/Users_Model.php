@@ -27,11 +27,11 @@ class Users_Model extends CI_Model {
 
 
     # Check if the user email exists
-    public function email_id ($email) {
+    public function username_id ($username) {
 
         # The query will get the id from the email address
         $this->db->select ('user_id')
-            ->where ('user_email', $email);
+            ->where ('user_username', $username);
 
         # Put the results in a variable
         $result = $this->db->get ('tbl_users');

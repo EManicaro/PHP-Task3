@@ -148,9 +148,9 @@ class Users extends TW_Controller {
 		$data = array (
 			'form'		=> array (
 				'username'			=> array (
-					'type'			=> 'email',
-					'name'			=> 'input-email',
-					'placeholder'	=> 'me@example.com',
+					'type'			=> 'text',
+					'name'			=> 'input-username',
+					'placeholder'	=> 'HermanB',
 					'required'		=> TRUE
 				),
 				'password'		=> array (
@@ -176,9 +176,9 @@ class Users extends TW_Controller {
 		# set the form rules
 		$rules = array (
 			array (
-				'field'	=> 'input-email',
-				'label' => 'Email',
-				'rules' => 'required|valid_email'
+				'field'	=> 'input-username',
+				'label' => 'Username',
+				'rules' => 'required'
 			),
 			array (
 				'field'	=> 'input-password',
@@ -196,19 +196,19 @@ class Users extends TW_Controller {
 			return;
 		}
 
-		$email 		= $this->input->post ('input-email');
+		$email 		= $this->input->post ('input-username');
 		$password 	= $this->input->post ('input-password');
 
 		# Set the result of this query in a variable
-		$login_id = $this->users_model->email_id ($email);
+		$login_id = $this->users_model->username_id ($username);
 
-		# If the email doesn't exist, stop here
+		# If the username doesn't exist, stop here
 		if (!$login_id) {
-			echo "The email does not exist.";
+			echo "The username does not exist.";
 			return;
 		}
 
-		# The email is OK, so now we should check the password
+		# The username is OK, so now we should check the password
 		if (!$this->users_model->check_password ($login_id, $password)) {
 			echo "The password is incorrect";
 			return;

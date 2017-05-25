@@ -13,7 +13,7 @@
         <?=form_input ($form['password']); ?>
 
         <?=form_submit (null, 'Login');?>
-        <?=form_submit (null, 'Sign Up');?>
+        <input type="button" value="Sign Up" class="registerbutton" id="btnRegister" onclick="document.location.href='register.php'" />
 
         <?=form_close (); ?>
     </body>
