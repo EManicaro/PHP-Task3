@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends TW_Controller {
+class Users extends SC_Controller {
 
 	# The registration form
 	public function register () {

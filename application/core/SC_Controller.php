@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TW_Controller extends CI_Controller {
+class SC_Controller extends CI_Controller {
 
     # This is the class constructor used to get the data from its parent
     function __construct () {

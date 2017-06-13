@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends TW_Controller {
+class Home extends SC_Controller {
 
 	# This is the class constructor used to get the data from its parent
     function __construct () {

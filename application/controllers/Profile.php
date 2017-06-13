@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends TW_Controller {
+class Profile extends SC_Controller {
 
 	# This is the index page: http://localhost/ci/index.php?profile
 	public function user($username = NULL)
