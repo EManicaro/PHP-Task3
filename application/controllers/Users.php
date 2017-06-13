@@ -14,43 +14,42 @@ class Users extends SC_Controller {
 			'form'		=> array (
 				'name'		=> array (
 					'type'			=> 'text',
-					'name'			=> 'input-full-name',
-					'placeholder'	=> 'Herman',
+					'name'			=> 'input-name',
+					'placeholder'	=> 'Name',
 					'required'		=> TRUE
 				),
 
 				'surname'		=> array (
 					'type'			=> 'text',
 					'name'			=> 'input-surname',
-					'placeholder'	=> 'Borg',
+					'placeholder'	=> 'Surname',
 					'required'		=> TRUE
 				),
 
 				'role'		=> array (
 					'type'			=> 'text',
 					'name'			=> 'input-role',
-					'placeholder'	=> 'Student',
+					'placeholder'	=> 'Role',
 					'required'		=> TRUE
 				),
 
 				'date_of_birth'		=> array (
 					'type'			=> 'date',
 					'name'			=> 'input-date_of_birth',
-					'placeholder'	=> '21-10-1995',
 					'required'		=> TRUE
 				),
 
 				'username'		=> array (
 					'type'			=> 'text',
 					'name'			=> 'input-username',
-					'placeholder'	=> 'HermanB',
+					'placeholder'	=> 'Username',
 					'required'		=> TRUE
 				),
 
 				'password'		=> array (
 					'type'			=> 'password',
 					'name'			=> 'input-password',
-					'placeholder'	=> 'password',
+					'placeholder'	=> 'Password',
 					'required'		=> TRUE
 				),
 
@@ -94,7 +93,7 @@ class Users extends SC_Controller {
 			array (
 				'field'	=> 'input-date_of_birth',
 				'label' => 'Date of Birth',
-				'rules' => 'required|numeric'
+				'rules' => 'required|date'
 			),
 			array (
 				'field'	=> 'input-username',
@@ -150,7 +149,7 @@ class Users extends SC_Controller {
 				'username'			=> array (
 					'type'			=> 'text',
 					'name'			=> 'input-username',
-					'placeholder'	=> 'HermanB',
+					'placeholder'	=> 'Username',
 					'required'		=> TRUE
 				),
 				'password'		=> array (
@@ -196,7 +195,7 @@ class Users extends SC_Controller {
 			return;
 		}
 
-		$email 		= $this->input->post ('input-username');
+		$username	= $this->input->post ('input-username');
 		$password 	= $this->input->post ('input-password');
 
 		# Set the result of this query in a variable

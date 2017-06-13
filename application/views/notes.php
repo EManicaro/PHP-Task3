@@ -1,5 +1,5 @@
 <?php
-    include 'functions.php';
+    include 'Notes.php';
 
     $note_id = null;
     if (isset ($_GET['n'])) {
