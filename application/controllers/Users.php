@@ -219,6 +219,8 @@ class Users extends SC_Controller {
 		# We set the userdata, however we need to set an encryption key
 		$this->session->set_userdata ($userdata);
 
+	
+
 	}
 
 	# The logout function
