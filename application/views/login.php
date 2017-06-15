@@ -16,5 +16,7 @@
         <input type="button" value="Sign Up" class="registerbutton" id="btnRegister" onclick="document.location.href='register.php'" />
 
         <?=form_close (); ?>
+
+        <li><a href="<?=base_url('register')?>">Register</a></li>
     </body>
 </html>

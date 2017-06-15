@@ -135,6 +135,8 @@ class Users extends SC_Controller {
 			echo "The user could not be registered.";
 		}
 
+		$this->load->view ('login', $data);
+
 	}
 
 	# The login form
@@ -219,7 +221,7 @@ class Users extends SC_Controller {
 		# We set the userdata, however we need to set an encryption key
 		$this->session->set_userdata ($userdata);
 
-	
+		$this->load->view ('news-feed', $data);
 
 	}
 

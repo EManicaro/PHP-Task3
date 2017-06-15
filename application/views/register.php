@@ -18,5 +18,8 @@
         <?=form_submit (null, 'Register');?>
 
         <?=form_close (); ?>
+
+        <li><a href="<?=base_url('login')?>">Login</a></li>
+
     </body>
 </html>

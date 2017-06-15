@@ -12,25 +12,25 @@
         <naV id="menu">
             <ul>
                 <li>
-                    <a href="news-feed.html">News Feed</a>
+                    <a href="<?site_url('news-feed')?>" <?php if ($this->router->fetch_class () == 'Home') echo 'class="active"' ?>>News Feed</a>
                 </li>
 
                 <li>
-                    <a href="profile.html">Profile Page</a>
+                    <a href="<?site_url('profile')?>" <?php if ($this->router->fetch_class () == 'Home') echo 'class="active"' ?>>Profile Page</a>
                 </li>
 
                 <li>
-                    <a href="notes.php">Notes</a>
+                    <a href="<?site_url('notes')?>" <?php if ($this->router->fetch_class () == 'Home') echo 'class="active"' ?>>Notes</a>
                 </li>
 
                 <li>
-                    <a href="contact-form.html">Contact Form</a>
+                    <a href="<?site_url('contact-form')?>" <?php if ($this->router->fetch_class () == 'Home') echo 'class="active"' ?>>Contact Form</a>
                 </li>
 
                 <hr>
 
                 <li>
-                    <a href="logout.php">Log Out</a>
+                    <a href="<?site_url('login')?>" <?php if ($this->router->fetch_class () == 'Home') echo 'class="active"' ?>>Log Out</a>
                 </li>
 
             </ul>

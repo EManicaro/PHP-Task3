@@ -20,18 +20,9 @@ class Profile extends SC_Controller {
 		$this->load->view ('struct/start');
 
 		# This command loads a view from the application/views folder
-		$this->load->view('profile/view', $data);
+		$this->load->view('profile/profile', $data);
 
 		$this->load->view ('struct/end');
 	}
 
-
-	# The send message page: http://localhost/ci/index.php?/profile/message
-	public function message () {
-
-		$this->load->view ('struct/start');
-		$this->load->view ('profile/message');
-		$this->load->view ('struct/end');
-
-	}
 }

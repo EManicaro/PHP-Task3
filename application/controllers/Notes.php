@@ -33,6 +33,13 @@ class Notes extends SC_Controller {
 
         return $id;
 
+        $this->load->view ('struct/start');
+
+		# This command loads a view from the application/views folder
+		$this->load->view('notes');
+
+		$this->load->view ('struct/end');
+
     }
 
     # Load Note

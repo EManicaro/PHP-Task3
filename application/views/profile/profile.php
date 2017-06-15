@@ -19,8 +19,10 @@
                 <hr id="line">
 
             <h2 id="sub-title">Contact</h2>
-                
+
                 <div class="about-me">
                     E-mail
                     <input type="email" id="info" value="manuel.borg@school.com">
                 </div>
+
+            

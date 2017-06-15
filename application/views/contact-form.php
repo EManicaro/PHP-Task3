@@ -15,9 +15,3 @@
                     <button type="submit" id="button"> Submit </button>
 
             </form>
-
-        </main>
-
-    </body>
-
-</html>
