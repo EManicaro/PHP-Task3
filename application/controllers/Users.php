@@ -135,7 +135,7 @@ class Users extends SC_Controller {
 			echo "The user could not be registered.";
 		}
 
-		$this->load->view ('login', $data);
+		$this->load->view ('login');
 
 	}
 
@@ -221,7 +221,9 @@ class Users extends SC_Controller {
 		# We set the userdata, however we need to set an encryption key
 		$this->session->set_userdata ($userdata);
 
-		$this->load->view ('news-feed', $data);
+		$this->load->view ('struct/start');
+		$this->load->view ('news-feed');
+		$this->load->view ('struct/end');
 
 	}
 
@@ -230,7 +232,7 @@ class Users extends SC_Controller {
 
 		$keys = array ('user_id', 'user_full_name');
 		$this->session->unset_userdata ($keys);
-		redirect ('users/login');
+		redirect ('login');
 
 	}
 }
