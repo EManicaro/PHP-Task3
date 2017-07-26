@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Contact Form</title>
+        <title>Student Companion</title>
 
         <link type="text/css" rel="stylesheet" href="../css/style.css">
     </head>

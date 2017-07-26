@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Register</title>
+        <title>Login</title>
 
         <link rel="stylesheet" type="text/css" href="<?=base_url ('css/style.css')?>">
     </head>
@@ -13,10 +13,9 @@
         <?=form_input ($form['password']); ?>
 
         <?=form_submit (null, 'Login');?>
-        <input type="button" value="Sign Up" class="registerbutton" id="btnRegister" onclick="document.location.href='register.php'" />
+        <input type="button" value="Sign Up" class="registerbutton" id="btnRegister" onclick="document.location.href='register'" />
 
         <?=form_close (); ?>
 
-        <li><a href="<?=base_url('register')?>">Register</a></li>
     </body>
 </html>
