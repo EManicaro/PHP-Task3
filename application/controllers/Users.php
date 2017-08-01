@@ -230,9 +230,12 @@ class Users extends SC_Controller {
 	# The logout function
 	public function logout () {
 
-		$keys = array ('user_id', 'user_full_name');
-		$this->session->unset_userdata ($keys);
-		redirect ('login');
+		session_start();
+		if (isset($_Session['input-username'] ['input-password'])) {
+			unset($_Session['input-username'] ['input-password']);
+		}
+
+		header ("location:login.php");
 
 	}
 }

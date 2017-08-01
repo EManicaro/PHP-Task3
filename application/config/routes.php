@@ -53,6 +53,13 @@ $route['default_controller'] = 'home';
 
 $route['login'] = 'users/login';
 $route['register'] = 'users/register';
+$route['logout'] = 'users/logout';
+
+$route['notes'] = 'notes/create_note';
+
+$route['profile'] = 'profile/user';
+
+$route['contact-form'] = 'contact-form';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

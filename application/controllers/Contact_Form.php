@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends SC_Controller {
+class Contact_Form extends SC_Controller {
 
 	# This is the class constructor used to get the data from its parent
     function __construct () {
@@ -15,16 +15,12 @@ class Home extends SC_Controller {
 	public function index ()
 	{
 
-		# This command loads a view from the application/views folder
-		$this->build ('news-feed');
+        $this->load->view ('struct/start');
 
-	}
+        # This command loads a view from the application/views folder
+        $this->load->view('contact-form');
 
-    public function profile ()
-	{
-
-		# This command loads a view from the application/views folder
-		$this->build ('profile');
+        $this->load->view ('struct/end');
 
 	}
 }
