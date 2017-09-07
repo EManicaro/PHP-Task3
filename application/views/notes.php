@@ -1,34 +1,3 @@
-<?php
-    include 'Notes.php';
-
-    $note_id = null;
-    if (isset ($_GET['n'])) {
-        $note_id = $_GET['n'];
-        $note = null;
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $title = $_POST['title'];
-        $content = $_POST['content'];
-        $note_id = $_POST['note_id'];
-
-        if ($note_id == NULL) {
-            $note_id = create_note ($_COOKIE['user_id'], $title);
-        } else {
-            update_note ($_COOKIE['user_id'], $note_id, $title);
-        }
-
-        save_note_to_disk ($note_id, $content);
-
-        redirect ("notes.php?n={$note_id}");
-
-    } else {
-        if ($note_id != null) {
-            $note = load_note ($_COOKIE['user_id'], $note_id);
-            $note['content'] = load_note_from_disk ($note_id);
-        }
-    }
-?>
 
           <h2 id="sub-title">Notes</h2>
 
@@ -45,10 +14,6 @@
                 <br>
 
                 <button type="submit" id="save-button">Save</button>
-
-        <?php if (isset ($note)): ?>
-                <input type="hidden" name="note_id" value="<?=$note_id?>">
-        <?php endif; ?>
 
             </form>
 

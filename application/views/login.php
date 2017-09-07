@@ -13,7 +13,7 @@
         <?=form_input ($form['password']); ?>
 
         <?=form_submit (null, 'Login');?>
-        <input type="button" value="Sign Up" class="registerbutton" id="btnRegister" onclick="document.location.href='register'" />
+        <a href="<?=site_url('register')?>">Sign Up</a>
 
         <?=form_close (); ?>
 

@@ -4,7 +4,7 @@
     <head>
         <title>Student Companion</title>
 
-        <link type="text/css" rel="stylesheet" href="../css/style.css">
+        <link type="text/css" rel="stylesheet" href="<?=base_url('css/style.css')?>">
     </head>
 
     <body>

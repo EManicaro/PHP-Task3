@@ -33,8 +33,6 @@ class SC_Controller extends CI_Controller {
 
             # if the user is on the login/register pages
             if ($this->router->fetch_class () == 'users') {
-    			redirect ("home");
-
                 # only redirect if the user is not on the logout page
                 if ($this->router->fetch_method () != 'logout') {
                     redirect ("home");

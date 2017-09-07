@@ -3,35 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Notes extends SC_Controller {
 
+    # This is the class constructor used to get the data from its parent
+    function __construct () {
+
+        # Inherit the parent class' properties
+        parent::__construct ();
+
+        $this->load->model ('notes_model');
+
+    }
+
     # Create Note
-    public function create_note ($user_id, $title)
+    public function create_note ()
     {
-
-        # Open a connection to the database
-        $conn = connect_to_database ();
-
-        # Filter all the inputs
-        $user_id = mysqli_escape_string ($conn, $user_id);
-        $title = mysqli_escape_string ($conn, $title);
-        $date = time ();
-
-        # Prepare the query
-        $query = "
-            INSERT INTO notes
-                (note_title, note_date, user_id)
-            VALUES
-                ('{$title}', {$date}, {$user_id})
-        ";
-
-        # Save the query results in a variable
-        $result = mysqli_query ($conn, $query);
-
-        $id = mysqli_insert_id ($conn);
-
-        # Disconnect from the database
-        disconnect_from_database ($conn);
-
-        return $id;
 
         $this->load->view ('struct/start');
 
@@ -43,67 +27,38 @@ class Notes extends SC_Controller {
     }
 
     # Load Note
-    public function load_note ($user_id, $note_id)
+    public function view ($id)
     {
 
-        # Open a connection to the database
-        $conn = connect_to_database ();
+        $notes = $this->notes_model->get ($id);
+        $this->load->helper ('form');
 
-        # Filter all the inputs
-        $user_id = mysqli_escape_string ($conn, $user_id);
-        $note_id = mysqli_escape_string ($conn, $note_id);
+        $hidden = array ('note_id' => $id);
 
-        # Prepare the query
-        $query = "
-            SELECT *
-            FROM notes
-            WHERE note_id={$note_id} AND user_id={$user_id}
-        ";
-
-        # Save the query results in a variable
-        $result = mysqli_query ($conn, $query);
-
-        # Disconnect from the database
-        disconnect_from_database ($conn);
-
-        # If there are no results from the query, stop here
-        if (mysqli_num_rows ($result) != 1)
-            return FALSE;
-
-        # The page will have an associative array available
-        return mysqli_fetch_assoc ($result);
+        echo form_open ('add', NULL, $hidden);
 
     }
 
     # Update Note
-    public function update_note ($user_id, $note_id, $title) {
+    public function update_note () {
 
-        # Open a connection to the database
-        $conn = connect_to_database ();
+        #check data (form_validation)
+        $data = array (
+			'form'		=> array (
+				'title'		=> array (
+					'type'			=> 'text',
+					'name'			=> 'input-title',
+					'placeholder'	=> 'Title',
+					'required'		=> TRUE
+				)
+                )
+            );
+        #retrive data ($this->input->post())
+        $id = $this->input->post('note_id');
+        $title = $this->input->post('title');
 
-        # Filter all the inputs
-        $user_id = mysqli_escape_string ($conn, $user_id);
-        $note_id = mysqli_escape_string ($conn, $note_id);
-        $title = mysqli_escape_string ($conn, $title);
-
-        # Prepare the query
-        $query = "
-            UPDATE notes
-            SET
-                note_title = '{$title}'
-            WHERE
-                user_id = '{$user_id}' AND
-                note_id = '{$note_id}'
-        ";
-
-        # Save the query results in a variable
-        $result = mysqli_query ($conn, $query);
-        $affected = mysqli_affected_rows ($conn);
-
-        # Disconnect from the database
-        disconnect_from_database ($conn);
-
-        return ($affected == 1);
+        #update via model ($this->model->update())
+        $this->notes_model->update_note($id, $title);
 
     }
 
