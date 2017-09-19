@@ -63,14 +63,17 @@ class Notes extends SC_Controller {
     }
 
     # Save Note to Disk
-    public function save_note_to_disk ($note_id, $content) {
+    public function save_note_to_disk () {
 
         if (!file_exists ('notes')) {
             # MAKE DIRECTORY
             mkdir ('notes');
         }
 
-        $filename = "notes/{$note_id}.txt";
+        $id = $this->input->post('note_id');
+        $content = $this->input->post('content');
+
+        $filename = "notes/{$id}.txt";
 
         if (!$handler = fopen ($filename, 'w+')) {
             return FALSE;

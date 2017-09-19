@@ -3,7 +3,7 @@
 
             <hr id="sub-title-line">
 
-            <form action="notes.php" method="post">
+            <form action="save_note_to_disk" method="post">
 
                 <input type="text" name="title" placeholder="Title" id="notes-title-box" value="<?php if (isset ($note)) echo $note['note_title']?>">
 
